@@ -1,15 +1,6 @@
 {
   "name": "Soroi Amboseli Guest Guide",
-  "builds": [
-    {
-      "src": "amboseli-guest-guide/index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "amboseli-guest-guide/$1"
-    }
-  ]
+  "buildCommand": "echo 'Static site'",
+  "outputDirectory": "amboseli-guest-guide",
+  "public": true
 }
