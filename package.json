@@ -6,10 +6,12 @@
   "scripts": {
     "check-drive": "node scripts/check-drive.js",
     "build-index": "node scripts/build-image-index.js",
-    "pipeline": "node orchestrator/index.js"
+    "pipeline": "node orchestrator/index.js",
+    "generate-qr": "node scripts/generate-qr-code.js"
   },
   "dependencies": {
     "puppeteer": "^25.1.0",
+    "qrcode": "^1.5.4",
     "sharp": "^0.33.0"
   }
 }
