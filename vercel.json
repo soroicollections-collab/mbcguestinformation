@@ -1,0 +1,15 @@
+{
+  "name": "Soroi Amboseli Guest Guide",
+  "builds": [
+    {
+      "src": "amboseli-guest-guide/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "amboseli-guest-guide/$1"
+    }
+  ]
+}
