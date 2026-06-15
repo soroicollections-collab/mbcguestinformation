@@ -4,7 +4,7 @@
 
 ### High Priority
 - [ ] **Soroi caracal logo PNG** — Currently referenced but commented out in hero section
-- [ ] **Spa treatment menu** — Currently shows "Please ask reception"
+- [x] **Spa treatment menu** — 11 treatments + 4 body scrubs added with pricing
 - [ ] **Spa hours** — Currently shows "Please ask your butler or reception"
 - [ ] **Wheelchair-accessible tent names** — Two tents accessible (one fully modified); confirm which ones: `[tent names TBC]`
 
