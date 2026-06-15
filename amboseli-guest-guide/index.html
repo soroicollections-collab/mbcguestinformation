@@ -231,7 +231,12 @@ section.page-section:nth-of-type(even) .unit-card{background:var(--parchment-mid
 .welcome-body{padding:60px 0}
 
 /* Responsive */
+@media(max-width:640px){
+  .container{padding:0 16px;max-width:100%}
+  body{font-size:15px}
+}
 @media(max-width:420px){
+  .container{padding:0 16px}
   .units-grid{grid-template-columns:1fr 1fr}
   .discover-grid{grid-template-columns:1fr}
   .prop-editorial{height:220px}
