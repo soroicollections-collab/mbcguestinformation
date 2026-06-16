@@ -1,6 +1,4 @@
 {
-  "name": "Soroi Amboseli Guest Guide",
   "buildCommand": "echo 'Static site'",
-  "outputDirectory": "amboseli-guest-guide",
-  "public": true
+  "outputDirectory": "amboseli-guest-guide"
 }
