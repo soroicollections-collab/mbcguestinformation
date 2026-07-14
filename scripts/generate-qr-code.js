@@ -2,114 +2,112 @@ const QRCode = require('qrcode');
 const fs = require('fs');
 const path = require('path');
 
-const url = 'https://amboseliguestinformation.vercel.app/';
-
-// Create QR codes in different formats
-const outputDir = path.join(__dirname, '..', 'amboseli-guest-guide', 'qr-codes');
-
-// Ensure output directory exists
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir, { recursive: true });
-}
-
-// Generate high-quality PNG for printing
-QRCode.toFile(
-  path.join(outputDir, 'amboseli-qr-code-hq.png'),
-  url,
+// Configuration for each property
+const properties = [
   {
-    errorCorrectionLevel: 'H',
-    type: 'image/png',
-    quality: 1,
-    margin: 2,
-    width: 500,
+    name: 'Soroi Amboseli',
+    outputDir: path.join(__dirname, '..', 'amboseli-guest-guide', 'qr-codes'),
+    filePrefix: 'amboseli',
+    bgColor: '#f0ebe3',
+    textColor: '#2c2c2c',
+    guides: [
+      {
+        url: 'https://amboseliguestinformation.vercel.app/#review-us',
+        name: 'Guest Guide',
+        filePrefix: 'amboseli-qr-code',
+      },
+      {
+        url: 'https://search.google.com/local/writereview?placeid=ChIJBwcLDwCZMBgRH4UuDWHSw0o',
+        name: 'Google Reviews',
+        filePrefix: 'amboseli-google-qr-code',
+      },
+      {
+        url: 'https://www.tripadvisor.com/UserReviewEdit-d34465046?m=66883',
+        name: 'TripAdvisor',
+        filePrefix: 'amboseli-tripadvisor-qr-code',
+      },
+    ],
   },
-  (err) => {
-    if (err) {
-      console.error('Error generating PNG:', err);
-    } else {
-      console.log('✓ High-quality PNG QR code created: amboseli-qr-code-hq.png');
-    }
-  }
-);
-
-// Generate SVG for scalability (vector format, infinitely scalable)
-QRCode.toFile(
-  path.join(outputDir, 'amboseli-qr-code.svg'),
-  url,
   {
-    errorCorrectionLevel: 'H',
-    type: 'image/svg+xml',
-    margin: 2,
-    width: 500,
+    name: 'Soroi Blue Diani',
+    outputDir: path.join(__dirname, '..', 'Marketing', 'archive', 'marketing', 'Guest-Information', 'blueguestinformation', 'qr-codes'),
+    filePrefix: 'diani',
+    bgColor: '#F5EFE4',
+    textColor: '#1E2A22',
+    guides: [
+      {
+        url: 'https://blueguestinformation.vercel.app/#review-us',
+        name: 'Guest Guide',
+        filePrefix: 'diani-qr-code',
+      },
+      {
+        url: 'https://search.google.com/local/writereview?placeid=ChIJWxMKwdFFQBgRLC5EdagNqww',
+        name: 'Google Reviews',
+        filePrefix: 'diani-google-qr-code',
+      },
+      {
+        url: 'https://www.tripadvisor.com/UserReviewEdit-d34465047?m=66883',
+        name: 'TripAdvisor',
+        filePrefix: 'diani-tripadvisor-qr-code',
+      },
+    ],
   },
-  (err) => {
-    if (err) {
-      console.error('Error generating SVG:', err);
-    } else {
-      console.log('✓ Scalable SVG QR code created: amboseli-qr-code.svg');
-    }
+];
+
+properties.forEach((prop) => {
+  // Ensure output directory exists
+  if (!fs.existsSync(prop.outputDir)) {
+    fs.mkdirSync(prop.outputDir, { recursive: true });
   }
-);
 
-// Generate HTML file with embedded QR code for web use
-const htmlContent = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soroi Amboseli QR Code</title>
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      background: #f0ebe3;
-      font-family: 'Poppins', sans-serif;
-    }
-    .container {
-      text-align: center;
-      padding: 40px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h1 {
-      font-family: 'Cinzel', serif;
-      color: #2c2c2c;
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-    p {
-      color: #766553;
-      margin-bottom: 30px;
-      font-size: 14px;
-    }
-    img {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Soroi Amboseli</h1>
-    <p>Scan to view guest information</p>
-    <img src="amboseli-qr-code-hq.png" alt="QR Code to Soroi Amboseli Guest Guide" />
-  </div>
-</body>
-</html>`;
+  prop.guides.forEach((guide) => {
+    // Generate high-quality PNG for printing
+    QRCode.toFile(
+      path.join(prop.outputDir, `${guide.filePrefix}-hq.png`),
+      guide.url,
+      {
+        errorCorrectionLevel: 'H',
+        type: 'image/png',
+        quality: 1,
+        margin: 2,
+        width: 500,
+      },
+      (err) => {
+        if (err) {
+          console.error(`Error generating PNG for ${prop.name} (${guide.name}):`, err);
+        } else {
+          console.log(`✓ PNG QR code: ${guide.filePrefix}-hq.png (${guide.name})`);
+        }
+      }
+    );
 
-fs.writeFileSync(path.join(outputDir, 'qr-display.html'), htmlContent);
-console.log('✓ Web display HTML created: qr-display.html');
+    // Generate SVG for scalability (vector format, infinitely scalable)
+    QRCode.toFile(
+      path.join(prop.outputDir, `${guide.filePrefix}.svg`),
+      guide.url,
+      {
+        errorCorrectionLevel: 'H',
+        type: 'image/svg+xml',
+        margin: 2,
+        width: 500,
+      },
+      (err) => {
+        if (err) {
+          console.error(`Error generating SVG for ${prop.name} (${guide.name}):`, err);
+        } else {
+          console.log(`✓ SVG QR code: ${guide.filePrefix}.svg (${guide.name})`);
+        }
+      }
+    );
+  });
+});
 
 console.log('\n✓ All QR codes generated successfully!');
-console.log('Location: amboseli-guest-guide/qr-codes/\n');
-console.log('Files created:');
-console.log('  - amboseli-qr-code-hq.png (Print-ready, 500x500px)');
-console.log('  - amboseli-qr-code.svg (Scalable vector format)');
-console.log('  - qr-display.html (Web display)');
-console.log('\nFor printing: Use the PNG or SVG at high resolution');
-console.log('Link: ' + url);
+console.log('\nAmboseli QR codes:');
+console.log('  - amboseli-qr-code-hq.png / .svg (Guest Guide)');
+console.log('  - amboseli-google-qr-code-hq.png / .svg (Google Reviews)');
+console.log('  - amboseli-tripadvisor-qr-code-hq.png / .svg (TripAdvisor)');
+console.log('\nDiani QR codes:');
+console.log('  - diani-qr-code-hq.png / .svg (Guest Guide)');
+console.log('  - diani-google-qr-code-hq.png / .svg (Google Reviews)');
+console.log('  - diani-tripadvisor-qr-code-hq.png / .svg (TripAdvisor)');

@@ -200,6 +200,14 @@ section.page-section:nth-of-type(even) .unit-card{background:var(--parchment-mid
 .social-icons{display:flex;gap:18px;margin-top:14px}
 .social-icons a{color:var(--bronze)}
 
+/* Review buttons */
+.review-buttons-container{display:flex;gap:48px;margin-top:32px;justify-content:center;flex-wrap:wrap}
+.review-button-pair{display:flex;flex-direction:column;align-items:center;gap:20px;flex:0 1 auto}
+.review-btn{display:flex;align-items:center;justify-content:center;gap:16px;padding:28px 48px;border:3px solid var(--bronze);border-radius:6px;background:transparent;color:var(--bronze);text-decoration:none;font-size:18px;font-weight:600;cursor:pointer;transition:all .3s;min-width:200px}
+.review-btn:hover,.review-btn:active{background:var(--bronze);color:white;transform:scale(1.05)}
+.review-btn svg{width:28px;height:28px;flex-shrink:0}
+.review-qr{width:140px;height:140px;border:2px solid var(--parchment-mid);border-radius:4px;padding:8px;background:white}
+
 /* Closing line */
 .closing-line{font-style:italic;font-weight:300;font-size:15px;color:var(--ink-mid);text-align:center;margin-top:48px}
 
@@ -327,6 +335,7 @@ p+p{margin-top:10px!important}
   <a href="#services">Services</a>
   <a href="#all-units">All Units</a>
   <a href="#reference">Reference</a>
+  <a href="#review-us">Review Us</a>
   <a href="#soroi-collection">Soroi Collection</a>
 </div>
 
@@ -991,6 +1000,37 @@ p+p{margin-top:10px!important}
 </section>
 
 <!-- ============================================================ SECTION 11 — SOROI COLLECTION -->
+<!-- ============================================================ SECTION — REVIEW US -->
+<section class="page-section" id="review-us">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Leave Us a Review</span>
+      <h2>Leave Us a Review</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reveal d1">
+      <p>If your time with us beneath Kilimanjaro was one to remember, we'd love for you to share it with the world.</p>
+    </div>
+    <div class="review-buttons-container reveal d2">
+      <div class="review-button-pair">
+        <a href="https://search.google.com/local/writereview?placeid=ChIJBwcLDwCZMBgRH4UuDWHSw0o" target="_blank" rel="noopener" class="review-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/></svg>
+          Google Reviews
+        </a>
+        <img class="review-qr" src="qr-codes/amboseli-google-qr-code-hq.png" alt="Google Reviews QR Code">
+      </div>
+      <div class="review-button-pair">
+        <a href="https://www.tripadvisor.com/UserReviewEdit-d34465046?m=66883" target="_blank" rel="noopener" class="review-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 10.26 24 10.26 17.55 15.6 19.64 23.88 12 18.54 4.36 23.88 6.45 15.6 0 10.26 8.91 10.26 12 2"/></svg>
+          TripAdvisor
+        </a>
+        <img class="review-qr" src="qr-codes/amboseli-tripadvisor-qr-code-hq.png" alt="TripAdvisor QR Code">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION — SOROI COLLECTION -->
 <section class="page-section" id="soroi-collection">
   <div class="container">
     <div class="reveal">
@@ -1126,6 +1166,8 @@ p+p{margin-top:10px!important}
         </div>
       </a>
     </div>
+  </div>
+</section>
 
     <div class="discover-contact-strip reveal d3">
       <div class="discover-contact-left">
