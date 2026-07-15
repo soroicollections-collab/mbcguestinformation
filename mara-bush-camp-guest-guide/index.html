@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soroi Mara Bush Camp — Guest Information Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   SOROI MARA BUSH CAMP — DIGITAL GUEST GUIDE
+   ============================================================ */
+:root{
+  --parchment:     #F0EBE3;
+  --parchment-mid: #E8E0D5;
+  --parchment-line:#D4C9B8;
+  --parchment-dark:#B8AA96;
+  --ink:           #2C2C2C;
+  --ink-mid:       #4A4035;
+  --ink-lt:        #766553;
+  --bronze:        #C4A265;
+  --earth:         #3D2B1F;
+  --gold:          #8B6914;
+  --sand:          #C4956A;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;font-weight:300;background:var(--parchment);color:var(--ink-mid);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* Progress bar */
+#progress-bar{position:fixed;top:0;left:0;width:0;height:2px;background:var(--bronze);z-index:2000;pointer-events:none}
+
+/* Sticky nav */
+nav#site-nav{position:fixed;top:0;left:0;right:0;z-index:1500;display:flex;align-items:center;justify-content:space-between;padding:22px 24px;transition:padding .6s ease,background .6s ease,backdrop-filter .6s ease,border-color .6s ease;border-bottom:1px solid transparent}
+nav#site-nav.frosted{padding:14px 24px;background:rgba(240,235,227,.95);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom-color:var(--parchment-line)}
+.nav-brand{font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--earth)}
+.hamburger{cursor:pointer;display:flex;flex-direction:column;gap:5px;background:none;border:none;padding:6px;z-index:1600}
+.hamburger span{display:block;width:22px;height:1px;background:var(--earth);transition:all .35s ease;transform-origin:center}
+.hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* Nav overlay */
+.nav-overlay{display:none;position:fixed;inset:0;z-index:1450;background:var(--parchment);flex-direction:column;align-items:center;justify-content:center;gap:18px;overflow-y:auto;padding:90px 24px 60px}
+.nav-overlay.open{display:flex}
+.nav-overlay a{font-family:'Cinzel',serif;font-weight:400;font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--earth);transition:color .2s ease}
+.nav-overlay a:hover{color:var(--bronze)}
+.nav-overlay-close{position:absolute;top:26px;right:24px;font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-lt);cursor:pointer;background:none;border:none}
+
+/* Typography */
+h1,h2,h3,h4{font-family:'Cinzel',serif;color:var(--earth)}
+h2{font-size:clamp(26px,6vw,32px);font-weight:400;line-height:1.25;letter-spacing:.03em}
+h3{font-size:18px;font-weight:400;letter-spacing:.04em}
+h4{font-size:15px;font-weight:400;letter-spacing:.03em}
+.label{font-family:'Poppins',sans-serif;font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);display:block;margin-bottom:14px}
+p{font-size:16px;font-weight:300;line-height:1.8;color:var(--ink-mid)}
+p+p{margin-top:14px}
+
+/* Layout */
+.container{max-width:680px;margin:0 auto;padding:0 24px}
+.rule{display:block;height:1px;width:48px;background:var(--bronze);margin:18px 0 28px}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* Photo placeholder */
+.photo-ph{background:var(--parchment-mid);border:1px solid var(--bronze);position:relative;display:flex;align-items:center;justify-content:center;min-height:220px;text-align:center;overflow:hidden}
+.photo-ph .ph-label{font-style:italic;font-weight:300;font-size:13px;color:var(--ink-lt);padding:0 24px;line-height:1.7;position:relative;z-index:1}
+.photo-ph img.ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.tent-gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.tent-gallery .photo-ph{min-height:160px}
+
+/* Sections */
+section.page-section{padding:60px 0}
+section.page-section:nth-of-type(even){background:var(--parchment-mid)}
+
+/* Bullet list */
+.bullet-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.bullet-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;font-weight:300;line-height:1.7;color:var(--ink-mid)}
+.bullet-list li::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--bronze);margin-top:8px;flex-shrink:0}
+
+/* Spa treatment menu */
+.spa-treatments{display:flex;flex-direction:column;gap:16px;margin-top:18px}
+.treatment-card{padding:16px;background:var(--parchment-mid);border-left:2px solid var(--bronze);border-radius:2px}
+section.page-section:nth-of-type(even) .treatment-card{background:var(--parchment)}
+.treatment-name{font-family:'Cinzel',serif;font-size:16px;font-weight:400;color:var(--earth);margin-bottom:8px}
+.treatment-details{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:14px;color:var(--ink-lt)}
+@media(max-width:640px){.treatment-details{grid-template-columns:1fr}}
+.treatment-duration{font-weight:300}
+.treatment-price{text-align:right;font-family:'Cinzel',serif;color:var(--earth);font-weight:400}
+@media(max-width:640px){.treatment-price{text-align:left}}
+
+/* Info / Wi-Fi block */
+.info-block{margin-top:28px;padding:22px 24px;background:var(--parchment-mid);border-left:2px solid var(--bronze)}
+section.page-section:nth-of-type(even) .info-block{background:var(--parchment)}
+.info-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:7px 0;border-bottom:1px solid var(--parchment-line);font-size:14px}
+.info-row:last-child{border-bottom:none}
+.info-row .k{color:var(--ink-lt);font-size:12px;letter-spacing:.04em}
+.info-row .v{font-family:'Cinzel',serif;color:var(--earth);font-size:15px;text-align:right}
+.password-field{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;color:var(--earth);font-size:15px;font-weight:400;letter-spacing:.05em}
+.password-value{font-family:'Poppins',sans-serif;background:var(--parchment-line);padding:6px 12px;border-radius:2px;user-select:all}
+.copy-btn{background:var(--bronze);color:white;border:none;padding:6px 12px;border-radius:2px;cursor:pointer;font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:.08em;transition:opacity .2s}
+.copy-btn:hover{opacity:.85}
+.copy-btn.copied{background:var(--earth)}
+
+/* Activity blocks */
+.activity-block{margin-top:28px;padding-top:22px;border-top:1px solid var(--parchment-line)}
+.activity-block:first-of-type{margin-top:24px}
+.activity-block h4{margin-bottom:8px}
+
+/* Schedule list */
+.sched-list{list-style:none;margin-top:18px;display:flex;flex-direction:column}
+.sched-list li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--parchment-line);font-size:14px}
+.sched-list li:last-child{border-bottom:none}
+.sched-list li span:first-child{color:var(--ink-lt)}
+.sched-list li span:last-child{font-family:'Cinzel',serif;color:var(--earth);text-align:right}
+
+/* Soroi Collection — destination tags */
+.discover-destinations{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:20px 0;border-top:1px solid var(--parchment-line);border-bottom:1px solid var(--parchment-line);margin:24px 0}
+.dest-tag{font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--bronze)}
+.dest-sep{font-size:13px;color:var(--bronze);opacity:.4}
+
+/* Soroi Collection — editorial property grid */
+.discover-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:8px}
+.prop-editorial{position:relative;height:190px;overflow:hidden;background:var(--earth);display:block}
+.prop-ph{position:absolute;inset:0;z-index:0;border:none;min-height:0;border-radius:0}
+.prop-editorial-img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.prop-editorial-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(20,14,10,.8) 0%,rgba(20,14,10,.15) 55%,transparent 100%)}
+.prop-editorial-content{position:absolute;z-index:3;bottom:0;left:0;right:0;padding:14px}
+.prop-ed-header{display:flex;flex-direction:column;gap:4px}
+.prop-ed-region{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze)}
+.prop-ed-name{font-family:'Cinzel',serif;font-size:14px;font-weight:400;color:#fff;letter-spacing:.03em;line-height:1.25}
+
+/* Soroi Collection — get in touch */
+.discover-contact-strip{margin-top:32px;padding-top:28px;border-top:1px solid var(--parchment-line)}
+.discover-contact-left h3{margin-bottom:14px}
+.contact-row{display:flex;flex-direction:column;gap:8px}
+.contact-pair{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px}
+.cl-label{color:var(--ink-lt);text-transform:uppercase;letter-spacing:.1em;font-size:11px}
+.cl-val{font-family:'Cinzel',serif;color:var(--earth)}
+.discover-social{margin-top:24px}
+.discover-social p{font-size:12px;color:var(--ink-lt);margin-bottom:8px}
+.discover-social-handle{font-family:'Cinzel',serif;font-size:14px;letter-spacing:.1em;color:var(--earth)}
+.social-icons{display:flex;gap:18px;margin-top:14px}
+.social-icons a{color:var(--bronze)}
+
+/* Review buttons */
+.review-buttons-container{display:flex;gap:48px;margin-top:32px;justify-content:center;flex-wrap:wrap}
+.review-button-pair{display:flex;flex-direction:column;align-items:center;gap:20px;flex:0 1 auto}
+.review-btn{display:flex;align-items:center;justify-content:center;gap:16px;padding:28px 48px;border:3px solid var(--bronze);border-radius:6px;background:transparent;color:var(--bronze);text-decoration:none;font-size:18px;font-weight:600;cursor:pointer;transition:all .3s;min-width:200px}
+.review-btn:hover,.review-btn:active{background:var(--bronze);color:white;transform:scale(1.05)}
+.review-btn svg{width:28px;height:28px;flex-shrink:0}
+.review-qr{width:140px;height:140px;border:2px solid var(--parchment-mid);border-radius:4px;padding:8px;background:white}
+
+/* Closing line */
+.closing-line{font-style:italic;font-weight:300;font-size:15px;color:var(--ink-mid);text-align:center;margin-top:48px}
+
+/* ============================================================ HERO */
+#welcome{padding:0}
+.hero-wrap{position:relative;height:100vh;min-height:560px;overflow:hidden;background:var(--earth)}
+.hero-wrap .photo-ph{position:absolute;inset:0;min-height:100%;border:none;border-radius:0}
+
+/* Hero slideshow */
+.hero-slideshow{position:absolute;inset:0;z-index:0}
+.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:heroFade 21s cubic-bezier(.4,0,.2,1) infinite}
+.hero-slide:nth-child(1){animation-delay:0s}
+.hero-slide:nth-child(2){animation-delay:7s}
+.hero-slide:nth-child(3){animation-delay:14s}
+@keyframes heroFade{
+  0%{opacity:0;transform:scale(1.06)}
+  3%{opacity:1}
+  30%{opacity:1}
+  35%{opacity:0;transform:scale(1)}
+  100%{opacity:0;transform:scale(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-slide{animation:none;opacity:0;transform:none}
+  .hero-slide:first-child{opacity:1}
+}
+.hero-overlay{position:absolute;left:0;right:0;bottom:0;padding:40px 24px 52px;background:linear-gradient(to top,rgba(20,14,10,.88) 0%,rgba(20,14,10,.35) 65%,transparent 100%)}
+.hero-wordmark{font-family:'Cinzel',serif;font-weight:600;font-size:clamp(34px,9vw,52px);letter-spacing:.22em;color:#fff;text-align:center}
+.hero-rule{width:60px;height:1px;background:var(--bronze);margin:16px auto}
+.hero-sub{font-family:'Poppins',sans-serif;font-weight:300;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-align:center}
+.hero-logo-wrap{text-align:center;margin-bottom:18px}
+.hero-logo-wrap img{width:64px;margin:0 auto;opacity:.92}
+.hero-logo-tbc{display:block;text-align:center;font-size:11px;font-style:italic;margin-top:14px}
+
+.welcome-body{padding:60px 0}
+
+/* Responsive */
+@media(max-width:640px){
+  .container{padding:0 16px;max-width:100%}
+  body{font-size:15px}
+}
+@media(max-width:420px){
+  .container{padding:0 16px}
+  .discover-grid{grid-template-columns:1fr}
+  .prop-editorial{height:220px}
+}
+
+/* ============================================================
+   @MEDIA PRINT — A4 GUIDE
+   ============================================================ */
+@media print {
+
+@page { size: A4; margin: 14mm 16mm; }
+
+*,*::before,*::after{animation:none!important;transition:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html{scroll-behavior:auto}
+body{background:var(--parchment)!important}
+
+/* Hide on-screen chrome */
+#progress-bar,nav#site-nav,.nav-overlay{display:none!important}
+
+/* Force all reveal content visible */
+.reveal,.reveal.visible{opacity:1!important;transform:none!important}
+
+.container{max-width:100%!important;padding:0!important}
+
+/* ——— COVER / WELCOME ——— */
+#welcome{padding:0!important}
+.hero-wrap{height:269mm!important;min-height:0!important;overflow:hidden!important;page-break-after:always}
+.hero-slide{opacity:0!important;transform:none!important}
+.hero-slide:first-child{opacity:1!important}
+.welcome-body{padding:0!important}
+
+/* ——— SECTIONS: one per page ——— */
+section.page-section{padding:0!important;page-break-before:always}
+
+/* ——— TYPOGRAPHY ——— */
+h2{font-size:22px!important}
+h3{font-size:14px!important}
+h4{font-size:12px!important}
+.label{font-size:10px!important;margin-bottom:10px!important}
+p{font-size:11px!important;line-height:1.65!important}
+p+p{margin-top:10px!important}
+.rule{margin:12px 0 18px!important}
+
+/* ——— PHOTO PLACEHOLDERS ——— */
+.photo-ph{min-height:60mm!important}
+.tent-gallery .photo-ph{min-height:45mm!important}
+.prop-editorial{height:38mm!important}
+
+/* ——— AVOID AWKWARD SPLITS ——— */
+.info-block,.activity-block,.sched-list li,.bullet-list li,.prop-editorial{page-break-inside:avoid}
+
+/* ——— TIGHTER SPACING ——— */
+.bullet-list{gap:8px!important;margin-top:12px!important}
+.bullet-list li{font-size:11px!important}
+.info-block{margin-top:18px!important;padding:14px 16px!important}
+.activity-block{margin-top:18px!important;padding-top:14px!important}
+.sched-list{margin-top:12px!important}
+.sched-list li{padding:8px 0!important;font-size:11px!important}
+.closing-line{margin-top:28px!important}
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav id="site-nav">
+  <a href="#welcome" class="nav-brand">Soroi Mara Bush Camp</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay">
+  <button class="nav-overlay-close" id="nav-close">Close</button>
+  <a href="#welcome">Welcome</a>
+  <a href="#your-tent">Your Tent</a>
+  <a href="#dining">Dining</a>
+  <a href="#game-drives">Game Drives</a>
+  <a href="#activities">Activities</a>
+  <a href="#spa">The Spa</a>
+  <a href="#services">Services</a>
+  <a href="#reference">Reference</a>
+  <a href="#review-us">Review Us</a>
+  <a href="#soroi-collection">Soroi Collection</a>
+</div>
+
+<!-- ============================================================ SECTION 1 — WELCOME -->
+<section id="welcome">
+  <div class="hero-wrap">
+    <div class="hero-slideshow">
+      <img class="hero-slide" src="images/hero-1.jpg" alt="Soroi Mara Bush Camp on the Olare Orok River" onerror="this.style.display='none'">
+      <img class="hero-slide" src="images/hero-2.jpg" alt="Maasai Mara wildlife and landscape" onerror="this.style.display='none'">
+      <img class="hero-slide" src="images/hero-3.jpg" alt="Soroi Mara Bush Camp tents" onerror="this.style.display='none'">
+    </div>
+    <div class="hero-overlay">
+      <div class="hero-logo-wrap">
+        <img src="../../soroicollectionblack.png" alt="Soroi Collection caracal logo" onerror="this.style.display='none'">
+      </div>
+      <span class="hero-wordmark">SOROI MARA BUSH CAMP</span>
+      <span class="hero-rule"></span>
+      <span class="hero-sub">Olare Orok River, Maasai Mara, Kenya</span>
+    </div>
+  </div>
+
+  <div class="welcome-body container">
+    <div class="reveal">
+      <span class="label">Welcome</span>
+      <h2>Welcome to Soroi Mara Bush Camp</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reveal d1">
+      <p>Dear Intrepid Traveller, Welcome, Karibu, & Sopa Oleng! Your decision to choose our small, private, and personalized camp for your stay in the world famous Maasai Mara is certainly the right one.</p>
+      <p>Get away from the stress of everyday life and enjoy the wonderful atmosphere that our special camp offers. Our idea was to build a lovely little camp where our guests could have a close encounter with nature, yet not miss out on some luxuries!</p>
+      <p>The sounds of the African Bush as well as the fascinating wildlife which surrounds the camp will make your stay with us an unforgettable experience. We're proud to hold a Gold Eco-rating level from Eco-tourism Kenya, recognizing camps that meet rigorous standards in waste, water, and energy management.</p>
+      <p>Our team is happy to welcome you and we will do our best to make this an unforgettable stay for you. Please feel free to contact any of our very competent staff at anytime and they will gladly provide any assistance you may need.</p>
+    </div>
+
+    <div class="info-block reveal d2">
+      <span class="label" style="margin-bottom:12px;">Wi-Fi</span>
+      <div class="info-row"><span class="k">Network</span><span class="v">Guest</span></div>
+      <div class="info-row" style="flex-direction:column;align-items:flex-start;"><span class="k">Password</span><div class="password-field" style="margin-top:6px;"><span class="password-value" id="wifi-password">Soroi@2026</span><button class="copy-btn" id="copy-btn" onclick="copyPassword()">Copy</button></div></div>
+      <p style="margin-top:14px;font-size:13px;">Complimentary Wi-Fi is available in all public areas and in our tents. While the signal may occasionally fluctuate or experience brief interruptions, we kindly request your patience during such instances.</p>
+    </div>
+
+    <div class="info-block reveal d3">
+      <span class="label" style="margin-bottom:12px;">Emergency Contact</span>
+      <div class="info-row"><span class="k">Camp Manager</span><span class="v">+254 728 025 277</span></div>
+      <div class="info-row"><span class="k">Manager (alternate)</span><span class="v">+254 759 759 787</span></div>
+      <p style="margin-top:14px;font-size:13px;">We have a resident nurse on staff. A small bush hospital is located in Talek, approximately 30 minutes away. In case of serious emergencies during daylight hours, we can organize a flight to Nairobi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 2 — YOUR TENT -->
+<section class="page-section" id="your-tent">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Your Tent</span>
+      <h2>Your Tent</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reveal d1">
+      <p>Each tent at Soroi Mara Bush Camp is a luxury eco-conscious home — fully immersed in tree foliage with views over the Olare Orok River. Your private space is designed for comfort while remaining connected to the sounds and rhythms of the bush.</p>
+    </div>
+
+    <div class="photo-ph reveal d1">
+      <span class="ph-label">[ Your Luxury Bush Tent ]</span>
+    </div>
+
+    <div class="reveal d2">
+      <span class="label" style="margin-top:32px;">Your Tent Includes</span>
+      <ul class="bullet-list">
+        <li>Comfortable bed with quality linens</li>
+        <li>En-suite bathroom with hot and cold water</li>
+        <li>Eco-friendly toiletries in refillable dispensers</li>
+        <li>Minibar with complimentary water</li>
+        <li>Safe for valuables</li>
+        <li>Rechargeable torch and umbrella</li>
+        <li>Disposable slippers and bathrobes</li>
+        <li>All power via solar panels with 24-hour backup</li>
+      </ul>
+    </div>
+
+    <div class="reveal d3" style="margin-top:32px;">
+      <h4>Turn-down Service</h4>
+      <p>We provide turn-down services and will gladly adjust your tent's outside flaps to your requested level. Hot water bottles are provided at night for your comfort.</p>
+    </div>
+
+    <div class="reveal d3" style="margin-top:28px;">
+      <h4>Wake-up Call & Morning Beverages</h4>
+      <p>Our Room steward or the Camp Manager will inquire about your preferred wake-up call time each evening. You can also request early morning coffee, tea, or hot chocolate, which will be served on your tent veranda at your specified time.</p>
+    </div>
+
+    <div class="reveal d4" style="margin-top:28px;">
+      <h4>Check-in / Check-out</h4>
+      <p>You may occupy your tent from noon onwards. We kindly request that you check out by 10:00 am. If you require a late check-out, please ask the Manager for availability. If available, we can provide you with a day room to freshen up before departure.</p>
+    </div>
+
+    <div class="info-block reveal d5">
+      <span class="label" style="margin-bottom:12px;">Towels & Laundry</span>
+      <p>To indicate that you want your towels washed, simply place them on the floor. If you prefer to reuse them, kindly hang them on the rack to help us conserve water. Our laundry service is available as per the laundry list — items are hand washed and returned within 24 hours, weather permitting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 3 — DINING -->
+<section class="page-section" id="dining">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Dining</span>
+      <h2>Dining at the Camp</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reveal d2" style="margin-top:28px;">
+      <p>Meals are served in the Main Dining Tent or, weather permitting, under the shade of our indigenous trees. Most of our vegetables are sourced locally, and we maintain a small organic vegetable garden on-site. Our Head Chef is available to discuss any dietary preferences or requirements you may have.</p>
+    </div>
+
+    <div class="reveal d2">
+      <span class="label" style="margin-top:32px;">Meal Times</span>
+      <ul class="sched-list">
+        <li><span>Breakfast</span><span>06:30 – 09:30</span></li>
+        <li><span>Lunch</span><span>12:30 – 14:30</span></li>
+        <li><span>Dinner</span><span>19:30 – 21:30</span></li>
+        <li><span>Early dinner (families with children)</span><span>18:30 – 19:30</span></li>
+      </ul>
+    </div>
+
+    <div class="reveal d3" style="margin-top:32px;">
+      <h4>What's Included</h4>
+      <p>All three meals each day, plus complimentary local teas and coffee. For those seeking a cozy conclusion to your day, our nightly campfire offers the perfect ambience to reflect on your safari adventures while enjoying complimentary campfire nibbles.</p>
+    </div>
+
+    <div class="reveal d3" style="margin-top:28px;">
+      <h4>Beverages</h4>
+      <p>Relish a delightful selection of beverages available at our lounge/bar tent. Your barman will provide you with a voucher/receipt for all drinks consumed daily — simply sign these and indicate your tent number. You will receive your final bill before departure.</p>
+    </div>
+
+    <div class="reveal d4" style="margin-top:28px;">
+      <h4>Picnic Breakfast or Lunch</h4>
+      <p>Kindly discuss with your guide the evening before regarding your preference for a picnic breakfast or lunch during your game drive. The kitchen will prepare your selection accordingly, allowing us to minimize waste and tailor your meal to your liking.</p>
+    </div>
+
+    <div class="info-block reveal d5">
+      <span class="label" style="margin-bottom:12px;">Payment</span>
+      <p>We encourage a cashless payment policy via credit cards (Visa and Mastercard), mobile money, or online platforms such as Pesapal and DPO links. Credit card payments attract a 5% surcharge on the total.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 4 — GAME DRIVES -->
+<section class="page-section" id="game-drives">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Game Drives</span>
+      <h2>The Game Drive Experience</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reveal d2" style="margin-top:28px;">
+      <p>Feel connected to nature as you explore the wild Maasai Mara from a raised position in our custom-built, 4x4 safari vehicles. Our experienced guides will lead you to some of the most breathtaking views of the area, where you'll experience the magic of the safari — spotting elephants, lions, and cheetahs, among other fascinating wildlife.</p>
+    </div>
+
+    <div class="reveal d2">
+      <span class="label" style="margin-top:32px;">Schedules</span>
+      <ul class="sched-list">
+        <li><span>Morning game drive</span><span>06:30 – 09:30+</span></li>
+        <li><span>Afternoon game drive</span><span>15:30 – 18:30</span></li>
+        <li><span>Picnic breakfast on request</span><span>Ask your guide</span></li>
+      </ul>
+    </div>
+
+    <div class="reveal d3" style="margin-top:32px;">
+      <h4>Important Information</h4>
+      <p>The vehicle may be shared with other guests. Should you require exclusive use of the vehicle, kindly book in advance with Management at an extra charge. We ensure that we adhere to wildlife/conservation etiquette during these game drives. Each drive typically lasts up to two hours, with best sightings usually occurring in early mornings or late afternoons.</p>
+    </div>
+
+    <div class="info-block reveal d4">
+      <span class="label" style="margin-bottom:12px;">What to Bring</span>
+      <p>Neutral-coloured clothing, sunscreen, hat, binoculars, and your camera. Bring your rechargeable torch to dinner if you'd like it. All other needs will be handled by your experienced guide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 5 — ACTIVITIES -->
+<section class="page-section" id="activities">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Activities</span>
+      <h2>Beyond the Game Drives</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reveal d1">
+      <p>Aside from our thrilling game drives, we have a variety of activities to enhance your Maasai Mara experience. Explore beyond the traditional game drives with bush walks, Maasai village visits, private sundowners in stunning locations, unforgettable bush breakfasts & dinners, soothing massages, photography experiences, and more.</p>
+    </div>
+
+    <div class="activity-block reveal d2">
+      <h4>Guided Bush Walk</h4>
+      <p>Please note, this experience is designed for adults only. Have you ever dreamed of exploring the African bush on foot? Our experienced Walking Team, accompanied by an armed ranger, will guide you on an exclusive walking safari. Discover the small five, learn to identify animal tracks and droppings, and experience the bush at a different pace.</p>
+      <p style="margin-top:10px;"><strong>USD 80 per person (minimum 2 persons)</strong></p>
+    </div>
+
+    <div class="activity-block reveal d2">
+      <h4>Maasai Village Visit</h4>
+      <p>Enjoy a visit to a traditional Maasai Village and discover their "way of life" as it was a hundred years ago and still is today. The Maasai are an old nomadic tribe that lives in harmony with nature. We support the local community in the area — the majority of proceeds from this visit go directly to them.</p>
+      <p style="margin-top:10px;"><strong>USD 70 per person (minimum 2 adults); USD 35 per child</strong></p>
+    </div>
+
+    <div class="activity-block reveal d3">
+      <h4>Private Sundowner</h4>
+      <p>During your afternoon game drive you will discover a table & camping chairs set up in the savanna. This is a private arrangement, especially for you! Choose from a selection of spirits, house wine, beer, and soft drinks. Get spoilt with homemade canapés as the sun sets over the African plains.</p>
+      <p style="margin-top:10px;"><strong>USD 60 per adult; USD 30 per child (minimum 2 adults)</strong></p>
+    </div>
+
+    <div class="activity-block reveal d3">
+      <h4>Bush Breakfast</h4>
+      <p>Experience a magical Private Bush Breakfast in the African wilderness. You'll be escorted to a picturesque location with stunning panoramic views where our skilled chef and his team await to serve a delectable feast after an eventful game drive.</p>
+      <p style="margin-top:10px;"><strong>USD 110 per adult; USD 40 per child (minimum 2 adults)</strong></p>
+    </div>
+
+    <div class="activity-block reveal d4">
+      <h4>Private Bush Dinner</h4>
+      <p>The most romantic idea (weather permitting) is to have a dinner for 2 under the stars. It is perfect for honeymooners or anyone who wants more than the usual privacy. A table away from the main dining tent is set up surrounded by trees and bushes with lanterns for a romantic set-up. Your personal waiter will serve you a 4-course barbecued-style meal with wine and unlimited soft drinks.</p>
+      <p style="margin-top:10px;"><strong>USD 90 per adult; USD 45 per child (minimum 2 adults)</strong></p>
+    </div>
+
+    <div class="activity-block reveal d4">
+      <h4>Out of Africa Sunset Experience</h4>
+      <p>A customized safari cruiser, transformed into a mobile bar for unforgettable sunset experiences in the wild. Outfitted with a fully stocked wooden bar and ambient lighting, it offers a luxurious yet rustic setting ideal for enjoying drinks and snacks after an adventurous day, hosted by local guides.</p>
+      <p style="margin-top:10px;"><strong>USD 100 per person (minimum 4 persons); USD 40 per child</strong></p>
+    </div>
+
+    <div class="activity-block reveal d5">
+      <h4>Mara Bush School Adventure for Kids</h4>
+      <p>An exciting adventure awaits the young ones at Soroi Mara Bush Camp, with various activities conducted by our team. Children will have a rare opportunity to learn the Maasai ways of life and their daily chores, such as cooking African food, stringing real Maasai beads, playing traditional board games, listening to African stories, learning photography, participating in educational game drives, and enjoying wildlife quiz games.</p>
+      <p style="margin-top:10px;"><strong>USD 110 per child (per 3-night stay)</strong></p>
+    </div>
+
+    <div class="info-block reveal d5">
+      <span class="label" style="margin-bottom:12px;">Booking Activities</span>
+      <p>Feel free to chat with the Camp Manager or check the Activities booklet for more details. All activity bookings can be made through reception or your manager. Parents are encouraged to discuss kids' activities beforehand with our Camp Manager.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 6 — THE SPA -->
+<section class="page-section" id="spa">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Wellness & Spa</span>
+      <h2>Bush Spa Services</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reveal d2" style="margin-top:28px;">
+      <p>Book your spa session through the Manager. Our skilled therapists will create a private spa corner right in the serenity of your room, tailoring treatments to your body's needs.</p>
+    </div>
+
+    <div class="reveal d3" style="margin-top:28px;">
+      <h4>Massage Treatments</h4>
+      <div class="spa-treatments">
+        <div class="treatment-card">
+          <div class="treatment-name">Mara Bush Signature Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">90 minutes</div>
+            <div class="treatment-price">$115</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Full Body Swedish Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 minutes</div>
+            <div class="treatment-price">$75</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Deep Tissue Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 minutes</div>
+            <div class="treatment-price">$80</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Bush Revitaliser Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 minutes</div>
+            <div class="treatment-price">$75</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Aromatherapy</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 minutes</div>
+            <div class="treatment-price">$85</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Holistic Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 minutes</div>
+            <div class="treatment-price">$80</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Therapeutic Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 minutes</div>
+            <div class="treatment-price">$75</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Stress Relieving Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Head, Scalp & Shoulder Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Foot & Reflexology</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal d3" style="margin-top:28px;">
+      <h4>Body Scrubs</h4>
+      <div class="spa-treatments">
+        <div class="treatment-card">
+          <div class="treatment-name">Invigorating Citrus Salt & Sugar Scrub</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Anti-oxidant Coffee & Coconut Sugar Scrub</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Refreshing Lemon & Rosemary Salt Scrub</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Relaxing Vanilla & Coconut Brown Sugar Scrub</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal d4" style="margin-top:28px;">
+      <h4>Bush Body Scrubs</h4>
+      <div class="spa-treatments">
+        <div class="treatment-card">
+          <div class="treatment-name">Bush Revitaliser (Massage + Scrub Combo)</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">90 minutes</div>
+            <div class="treatment-price">$100+</div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:14px;font-size:13px;">These scrubs are available in our shops.</p>
+    </div>
+
+    <div class="reveal d5" style="margin-top:28px;">
+      <h4>Booking & Information</h4>
+      <p>Please speak to reception or ask your manager to book your preferred treatment time. We recommend booking on arrival to secure your preferred time slot.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 7 — SERVICES -->
+<section class="page-section" id="services">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Services</span>
+      <h2>Camp Services</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="activity-block reveal d1" style="margin-top:24px;">
+      <h4>Environmental Responsibility</h4>
+      <p>We take pride in our eco-friendly camps and our dedication to environmental responsibility. We are Gold Eco-rated by Eco-tourism Kenya. At Soroi Mara Bush Camp, we separate waste at source to minimize our impact. We draw water from our own borehole and heat it using eco-friendly heat pumps. Our camp operates entirely on solar power. As our guest, you will receive a complimentary eco steel bottle (on game package only) to use during game drives, promoting the reduction of single-use plastic.</p>
+    </div>
+
+    <div class="activity-block reveal d2">
+      <h4>Drinking Water</h4>
+      <p>For your convenience, additional drinking water is available in the mini fridge. We provide a beautiful repurposed glass bottle on your bathroom sink table as your drinking water source. Our water is meticulously filtered through Reverse Osmosis to ensure the highest standards of purification and safety. If you prefer sealed bottles, they are available for purchase at the bar.</p>
+    </div>
+
+    <div class="activity-block reveal d3">
+      <h4>Flush Toilets & Water Saving</h4>
+      <p>We kindly request to use the dual flush toilets consciously — smaller lever to flush liquid waste, and larger lever for solid waste. Please dispose of sanitary towels in the provided brown paper bags and refrain from flushing them down the toilet. We kindly ask you to use towels sparingly, to minimise water usage.</p>
+    </div>
+
+    <div class="activity-block reveal d4">
+      <h4>Lighting in the Tent</h4>
+      <p>All lights in your tent are powered by our solar panels. To conserve energy, please switch them off when leaving your tent. The lights on the veranda can remain on for your convenience — our Maasai security / Askaris can help with this.</p>
+    </div>
+
+    <div class="activity-block reveal d5">
+      <h4>Internet & Connectivity</h4>
+      <p>Complimentary Wi-Fi is available in all public areas and in our tents. While the signal may occasionally fluctuate or experience brief interruptions, we kindly request your patience during such instances.</p>
+    </div>
+
+    <div class="activity-block reveal d5">
+      <h4>Shop & Souvenirs</h4>
+      <p>We welcome you to check our wonderful Boutique shop inside our photo lounge. We stock locally crafted items out of soap stone, Maasai beads & all kinds of clothing such as fleeces, branded t-shirts, bathrobes, slippers etc. We also have a COMMUNITY SHELF where we display items made by various local communities here in Kenya.</p>
+    </div>
+
+    <div class="activity-block reveal d5">
+      <h4>Tips</h4>
+      <p>While tipping is not mandatory, it is appreciated if you find the services outstanding. The recommended amount is Kshs. 1,500 or USD 10 per guest per day for the entire staff. For your driver/guide, it's suggested to tip on the last day: $15 per guest per day. A Tip Box is placed at the manager's office for general gratuities, which are shared equally among the entire team.</p>
+    </div>
+
+    <div class="info-block reveal d5">
+      <span class="label" style="margin-bottom:12px;">Contact</span>
+      <p>reservations@soroi.com<br>+254 728 025 277<br>+254 759 759 787</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 8 — REFERENCE -->
+<section class="page-section" id="reference">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Reference</span>
+      <h2>Quick Reference</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="info-block reveal d1">
+      <span class="label" style="margin-bottom:12px;">Safety & Surroundings</span>
+      <p>As our camps are not fenced, we emphasise the importance of vigilance. We kindly request that you do not wander alone outside the camp, under any circumstances, as wild animals roam freely. To ensure your safety, Maasai watchmen guard the camp 24/7. During the daytime, it is safe to move around the camp independently. At night, our askari (watchman) will escort you to and from your tent.</p>
+    </div>
+
+    <div class="activity-block reveal d2">
+      <h4>Fire Safety</h4>
+      <p>In case of any fire: Exit the tent immediately and move to a clear area. Do not stop to pick up personal belongings or attempt to salvage anything. Report any fire to a staff member immediately. Proceed to the assembly point at camp entrance for a head count. Do not re-enter until it has been declared safe by management.</p>
+    </div>
+
+    <div class="activity-block reveal d3">
+      <h4>Location</h4>
+      <p>Situated in the heart of the Mara Game Reserve, on the Olare Orok River, we are conveniently located only 5 to 8 minutes' drive from Olkiombo Airstrip. GPS: [to be confirmed]</p>
+    </div>
+
+    <div class="activity-block reveal d3">
+      <h4>Social Responsibility</h4>
+      <p>Through Community & Wildlife Conservation (CWC), our NGO supported by Soroi Collection, we partner with the local Maasai community to support education, sustainable livelihoods, cultural preservation, and wildlife conservation. By creating employment opportunities, investing in community projects, and protecting the natural environment, we aim to ensure tourism delivers meaningful benefits for both people and wildlife. Bed night fees from our camp are paid directly to the community, alongside monthly county fees that contribute to local development.</p>
+    </div>
+
+    <div class="info-block reveal d4">
+      <span class="label" style="margin-bottom:12px;">Valuables</span>
+      <p>For added security, a Safe is available for depositing your valuables. The camp will not be liable for any missing items, should you not utilize the safe.</p>
+    </div>
+
+    <div class="info-block reveal d5">
+      <span class="label" style="margin-bottom:12px;">Contact</span>
+      <p>www.soroi.com<br>
+      reservations@soroi.com<br>
+      +254 728 025 277</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 9 — REVIEW US -->
+<section class="page-section" id="review-us">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Leave Us a Review</span>
+      <h2>Leave Us a Review</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reveal d1">
+      <p>If your time with us in the Maasai Mara was one to remember, we'd love for you to share it with the world.</p>
+    </div>
+    <div class="review-buttons-container reveal d2">
+      <div class="review-button-pair">
+        <a href="https://search.google.com/local/writereview?placeid=ChIJXQ-Y7jT6LBgR1iGYcqNv3jg" target="_blank" rel="noopener" class="review-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/></svg>
+          Google Reviews
+        </a>
+        <img class="review-qr" src="../tripadvisor-qr/tripadvisor-qr/svg/mara-bush-camp_google_qr.svg" alt="Google Reviews QR Code">
+      </div>
+      <div class="review-button-pair">
+        <a href="https://www.tripadvisor.com/UserReviewEdit-d1816384?m=66883" target="_blank" rel="noopener" class="review-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 10.26 24 10.26 17.55 15.6 19.64 23.88 12 18.54 4.36 23.88 6.45 15.6 0 10.26 8.91 10.26 12 2"/></svg>
+          TripAdvisor
+        </a>
+        <img class="review-qr" src="../tripadvisor-qr/tripadvisor-qr/svg/mara-bush-camp_tripadvisor_qr.svg" alt="TripAdvisor QR Code">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 10 — SOROI COLLECTION -->
+<section class="page-section" id="soroi-collection">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Soroi Collection</span>
+      <h2>The Soroi Collection</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="reveal d1">
+      <p>Soroi Mara Bush Camp is one of eleven properties across Kenya, each with its own character and its own landscape. From the Maasai Mara to the coral coast, the collection is bound by a common standard — genuine, unhurried, and rooted in place.</p>
+    </div>
+
+    <div class="discover-destinations reveal d1">
+      <span class="dest-tag">Maasai Mara</span>
+      <span class="dest-sep">&nbsp;·&nbsp;</span>
+      <span class="dest-tag">Samburu</span>
+      <span class="dest-sep">&nbsp;·&nbsp;</span>
+      <span class="dest-tag">Tsavo</span>
+      <span class="dest-sep">&nbsp;·&nbsp;</span>
+      <span class="dest-tag">Diani</span>
+      <span class="dest-sep">&nbsp;·&nbsp;</span>
+      <span class="dest-tag">Nairobi</span>
+    </div>
+
+    <div class="discover-grid reveal d2">
+      <a href="https://soroi.com/maasai-mara-camp-portfolio/soroi-mara-bush-camp/" target="_blank" rel="noopener" class="prop-editorial">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Mara Bush Camp ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-mara-bush-camp-2.webp" alt="Soroi Mara Bush Camp" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">Maasai Mara</span>
+            <span class="prop-ed-name">Soroi Mara Bush Camp</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://soroi.com/maasai-mara-camp-portfolio/soroi-private-wing/" target="_blank" rel="noopener" class="prop-editorial">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Private Wing ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-mara-bush-camp.jpg" alt="Soroi Private Wing" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">Maasai Mara</span>
+            <span class="prop-ed-name">Soroi Private Wing</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://soroi.com/maasai-mara-camp-portfolio/soroi-luxury-migration-camp/" target="_blank" rel="noopener" class="prop-editorial">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Luxury Migration Camp ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-migration.jpg" alt="Soroi Luxury Migration Camp" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">Maasai Mara</span>
+            <span class="prop-ed-name">Soroi Luxury Migration Camp</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://soroi.com/samburu-camp-portfolio/soroi-larsens-camp/" target="_blank" rel="noopener" class="prop-editorial">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Larsens Camp ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-larsens.jpg" alt="Soroi Larsens Camp" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">Samburu</span>
+            <span class="prop-ed-name">Soroi Larsens Camp</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://soroi.com/samburu-camp-portfolio/soroi-samburu-lodge/" target="_blank" rel="noopener" class="prop-editorial">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Samburu Lodge ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-samburu-lodge.jpg" alt="Soroi Samburu Lodge" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">Samburu</span>
+            <span class="prop-ed-name">Soroi Samburu Lodge</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://soroi.com/tsavo-camp-portfolio/soroi-lions-bluff-lodge/" target="_blank" rel="noopener" class="prop-editorial">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Lions Bluff Lodge ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-lions-bluff.jpg" alt="Soroi Lions Bluff Lodge" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">Tsavo / Lumo</span>
+            <span class="prop-ed-name">Soroi Lions Bluff Lodge</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://soroi.com/tsavo-camp-portfolio/soroi-leopards-lair/" target="_blank" rel="noopener" class="prop-editorial">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Leopards Lair ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-leopards-lair.jpg" alt="Soroi Leopards Lair" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">Tsavo / Lumo</span>
+            <span class="prop-ed-name">Soroi Leopards Lair</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://soroi.com/tsavo-camp-portfolio/soroi-cheetah-tented-camp/" target="_blank" rel="noopener" class="prop-editorial">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Cheetah Tented Camp ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-cheetah.jpg" alt="Soroi Cheetah Tented Camp" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">Tsavo / Lumo</span>
+            <span class="prop-ed-name">Soroi Cheetah Tented Camp</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://soroi.com/diani-beach-portfolio/soroi-blue-diani-beach/" target="_blank" rel="noopener" class="prop-editorial">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Blue Diani ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-diani.jpg" alt="Soroi Blue Diani" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">South Coast</span>
+            <span class="prop-ed-name">Soroi Blue Diani</span>
+          </div>
+        </div>
+      </a>
+      <div class="prop-editorial" style="position:relative;cursor:not-allowed;opacity:0.85;">
+        <div class="photo-ph prop-ph"><span class="ph-label">[ Soroi Nairobi ]</span></div>
+        <img class="prop-editorial-img" src="images/discover-nairobi.jpg" alt="Soroi Nairobi" onerror="this.style.display='none'">
+        <div class="prop-editorial-overlay"></div>
+        <div class="prop-editorial-content">
+          <div class="prop-ed-header">
+            <span class="prop-ed-region">Nairobi</span>
+            <span class="prop-ed-name">Soroi Nairobi</span>
+          </div>
+        </div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);padding:20px 30px;border-radius:6px;color:white;font-family:'Cinzel',serif;font-size:16px;letter-spacing:.1em;text-align:center;z-index:10;">Coming Soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+    <div class="discover-contact-strip reveal d3">
+      <div class="discover-contact-left">
+        <h3>Get in Touch</h3>
+        <div class="contact-row">
+          <div class="contact-pair"><span class="cl-label">Web</span><a href="https://soroi.com" target="_blank" rel="noopener" class="cl-val">soroi.com</a></div>
+          <div class="contact-pair"><span class="cl-label">Email</span><a href="mailto:reservations@soroi.com" class="cl-val">reservations@soroi.com</a></div>
+          <div class="contact-pair"><span class="cl-label">Tel</span><a href="tel:+254728025277" class="cl-val">+254 728 025 277</a></div>
+        </div>
+      </div>
+      <div class="discover-social">
+        <p>Share your stay with us</p>
+        <a href="https://www.instagram.com/soroicollection" target="_blank" rel="noopener"><span class="discover-social-handle">@soroicollection</span></a>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/soroicollection" target="_blank" rel="noopener" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.facebook.com/SoroiCollection" target="_blank" rel="noopener" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@SoroiCollection" target="_blank" rel="noopener" title="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 16 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="closing-line reveal d4">We wish you a wonderful stay with us at Soroi Mara Bush Camp!</p>
+  </div>
+
+<script>
+// Progress bar
+var bar=document.getElementById('progress-bar');
+window.addEventListener('scroll',function(){
+  var m=document.body.scrollHeight-window.innerHeight;
+  if(m>0)bar.style.width=(window.scrollY/m*100)+'%';
+},{passive:true});
+
+// Sticky nav frosted state
+var nav=document.getElementById('site-nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('frosted',window.scrollY>60);
+},{passive:true});
+if(window.scrollY>60)nav.classList.add('frosted');
+
+// Hamburger / nav overlay
+var hamburger=document.getElementById('hamburger');
+var overlay=document.getElementById('nav-overlay');
+var navClose=document.getElementById('nav-close');
+function toggleNav(){hamburger.classList.toggle('open');overlay.classList.toggle('open');}
+hamburger.addEventListener('click',toggleNav);
+navClose.addEventListener('click',toggleNav);
+overlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',toggleNav);});
+
+// Copy WiFi password
+function copyPassword(){
+  var passwordEl=document.getElementById('wifi-password');
+  var btnEl=document.getElementById('copy-btn');
+  var text=passwordEl.textContent;
+  navigator.clipboard.writeText(text).then(function(){
+    btnEl.textContent='Copied!';
+    btnEl.classList.add('copied');
+    setTimeout(function(){
+      btnEl.textContent='Copy';
+      btnEl.classList.remove('copied');
+    },2000);
+  }).catch(function(){
+    alert('Could not copy password. Please try again.');
+  });
+}
+
+// Scroll reveal
+if('IntersectionObserver' in window){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:0.15,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+}else{
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible');});
+}
+</script>
+
+</body>
+</html>
