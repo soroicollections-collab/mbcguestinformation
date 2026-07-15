@@ -1,0 +1,34 @@
+{
+  "_comment": "Metadata about the last image index run. Updated each time scripts/build-image-index.js is run.",
+  "last_indexed": "2026-05-22",
+  "total_images": 31352,
+  "drive_path": "/Volumes/Transcend/Soroi Collection",
+  "indexer_script": "scripts/build-image-index.js",
+  "known_issues": [
+    {
+      "id": "diani-sparse",
+      "severity": "info",
+      "description": "Diani has only 13 images indexed. The property folder contains only 'Full Gallery' and 'Pre-Opening' subfolders. No curated selects or categorised shoots yet."
+    },
+    {
+      "id": "larsens-misfiled",
+      "severity": "data-quality",
+      "description": "~83 Larsens Camp images (Marlene Brandstötter shoot) are stored under 'Soroi Collection/1. Properties/Soroi Samburu Lodge/Full Gallery/' on the drive. These are indexed as property: 'samburu-lodge' when they should be 'larsens-camp'. Fix: move the marlene brandstötter files to the Larsens Camp folder on the drive and re-run the indexer."
+    },
+    {
+      "id": "larsens-duplicates",
+      "severity": "data-quality",
+      "description": "The Marlene Brandstötter Larsens files appear twice in the index: once under 'Soroi Collection/1. Properties/Soroi Samburu Lodge/Full Gallery/' (indexed as samburu-lodge) and again under 'Samburu and Larsens/Soroi Larsens Camp/From Clients/Marlene Brandstötter/' (indexed as larsens-camp). Both sets have separate IDs. Resolving the misfiling above will eliminate the duplicates."
+    },
+    {
+      "id": "no-hero-assets",
+      "severity": "info",
+      "description": "All 31,352 images are indexed as quality: 'standard'. The 'Best Images' subfolders exist inside Mara Bush Camp, Lions Bluff Lodge, Larsens Camp, and Soroi Amboseli property folders but are currently empty. To create hero assets: add curated selects to the 'Best Images' subfolder of any property, then re-run: node scripts/build-image-index.js"
+    },
+    {
+      "id": "uncategorised-bulk",
+      "severity": "info",
+      "description": "2,661 images are categorised as 'uncategorised'. These come from supplementary folders (PICS Mara, LUMO, Samburu and Larsens) where the subfolder names are photographer or client names rather than category names (e.g. 'Andy Rouse High Res', 'From Clients'). The 'From Clients' folders are correctly mapped to 'client-submitted'; the remainder fall through as uncategorised."
+    }
+  ]
+}
