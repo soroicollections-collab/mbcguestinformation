@@ -1,4 +1,10 @@
 {
-  "buildCommand": "echo 'Static site'",
-  "outputDirectory": "mara-bush-camp-guest-guide"
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/mara-bush-camp-guest-guide/index.html"
+    }
+  ]
 }
